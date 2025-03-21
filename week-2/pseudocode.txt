@@ -1,0 +1,60 @@
+START Checkout
+
+  DISPLAY "Start Checkout"
+
+  SCAN_ITEM:
+
+    DISPLAY "Scan item"
+
+    GET item_price
+
+    total_cost = total_cost + item_price
+
+    DISPLAY "More items?"
+
+    GET answer
+
+    IF answer = "Yes":
+      GO TO SCAN_ITEM
+    ELSE IF answer = "No":
+      DISPLAY "Total: ", total_cost
+
+      DISPLAY "Apply discount?"
+
+      GET discount_answer
+
+      IF discount_answer = "Yes":
+        GET discount_amount
+        total_cost = total_cost - discount_amount
+      END IF
+
+      DISPLAY "Total: ", total_cost
+
+      DISPLAY "Choose payment method: Cash or Card?"
+
+      GET payment_method
+
+      IF payment_method = "Cash":
+        DISPLAY "Enter cash amount"
+        GET cash_amount
+
+        IF cash_amount >= total_cost:
+          change = cash_amount - total_cost
+          DISPLAY "Change: ", change
+          DISPLAY "Thank You"
+        ELSE:
+          DISPLAY "Insufficient Funds"
+        END IF
+
+      ELSE IF payment_method = "Card":
+        DISPLAY "Insert/Swipe/Tap card"
+        DISPLAY "Processing..."
+        DISPLAY "Payment approved"
+        DISPLAY "Thank You"
+      ELSE:
+        DISPLAY "Invalid payment method"
+      END IF
+
+    END IF
+
+END Checkout

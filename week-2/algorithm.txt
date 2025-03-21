@@ -1,0 +1,5 @@
+Input names and ages.
+Store the first age in a temporary variable.
+Give the first person the second person's age.
+Give the second person the age stored in the temporary variable.
+Display the new ages.
