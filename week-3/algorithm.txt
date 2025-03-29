@@ -1,0 +1,27 @@
+//Algorithm (pseudocode) to sort student information in a tabular form
+
+BEGIN
+    // Step 1: Define dictionaries for girls' data
+    DEFINE girl_ages AS dictionary (Name -> Age)
+    DEFINE girl_heights AS dictionary (Name -> Height)
+    DEFINE girl_scores AS dictionary (Name -> Score)
+
+    // Step 2: Define dictionaries for boys' data
+    DEFINE boy_ages AS dictionary (Name -> Age)
+    DEFINE boy_heights AS dictionary (Name -> Height)
+    DEFINE boy_scores AS dictionary (Name -> Score)
+
+    // Step 3: Print table header
+    PRINT "  Name   |  Age | Height | Score"
+
+    // Step 4: Print girls' data
+    FOR EACH girl IN girl_ages:
+        SET spaces TO " " repeated (12 - LENGTH(girl)) times
+        PRINT girl + spaces + girl_ages[girl] + "     " + girl_heights[girl] + "     " + girl_scores[girl]
+
+    // Step 5: Print boys' data
+    FOR EACH boy IN boy_ages:
+        SET spaces TO " " repeated (12 - LENGTH(boy)) times
+        PRINT boy + spaces + boy_ages[boy] + "     " + boy_heights[boy] + "     " + boy_scores[boy]
+
+END
